@@ -18,11 +18,11 @@ CONFIG_VERSION = 9
 
 _PLATFORMS = {
     Platform.BINARY_SENSOR,
-    Platform.BUTTON,
-    Platform.NUMBER,
-    Platform.SELECT,
+    # Platform.BUTTON,
+    # Platform.NUMBER,
+    # Platform.SELECT,
     Platform.SENSOR,
-    Platform.SWITCH,
+    # Platform.SWITCH,
 }
 
 ATTR_STATUS_SN = "SN"
@@ -91,11 +91,12 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry):
 
     if config_entry.version == 7:
         new_data = dict(config_entry.data)
-        is_api = CONF_ACCESS_KEY in config_entry.data
+        """ is_api = CONF_ACCESS_KEY in config_entry.data
         if is_api:
             new_data[CONF_API_HOST] = "api-e.ecoflow.com"
         else:
-            new_data[CONF_API_HOST] = "api.ecoflow.com"
+            new_data[CONF_API_HOST] = "api.ecoflow.com" """
+        new_data[CONF_API_HOST] = "api.ecoflow.com"
 
         updated = hass.config_entries.async_update_entry(config_entry, version=8, data=new_data)
         _LOGGER.info("Config entries updated to version %d", config_entry.version)

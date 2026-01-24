@@ -17,7 +17,7 @@ from homeassistant.helpers.device_registry import DeviceRegistry
 from homeassistant.helpers.entity_registry import EntityRegistry
 
 from . import (
-    CONF_ACCESS_KEY,
+    # CONF_ACCESS_KEY,
     CONF_API_HOST,
     CONF_DEVICE_ID,
     CONF_DEVICE_LIST,
@@ -26,7 +26,7 @@ from . import (
     CONF_GROUP,
     CONF_PARENT_SN,
     CONF_PASSWORD,
-    CONF_SECRET_KEY,
+    # CONF_SECRET_KEY,
     CONF_SELECT_DEVICE_KEY,
     CONF_USERNAME,
     CONFIG_VERSION,
@@ -101,7 +101,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
 
             from .devices.registry import device_support_sub_devices
 
-            for sn, device_data in self.new_data[CONF_DEVICE_LIST].items():
+            """ for sn, device_data in self.new_data[CONF_DEVICE_LIST].items():
                 if device_data[CONF_DEVICE_TYPE] not in device_support_sub_devices:
                     # skip here all devices that do not support sub devices
                     continue
@@ -128,7 +128,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
                         }
                         self.new_options[CONF_DEVICE_LIST][sub_device_sn] = (
                             self.new_options[CONF_DEVICE_LIST][sn]
-                        )
+                        ) """
 
             return self.async_create_entry(
                 title=self.new_data[CONF_GROUP],
@@ -140,11 +140,11 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
         # Get the device registry
         device_reg: DeviceRegistry = dr.async_get(self.hass)
 
-        if CONF_ACCESS_KEY in self.config_entry.data:
+        """ if CONF_ACCESS_KEY in self.config_entry.data:
             identifiers = {(ECOFLOW_DOMAIN, f"api-{sn}")}
         else:
-            identifiers = {(ECOFLOW_DOMAIN, f"{sn}")}
-
+            identifiers = {(ECOFLOW_DOMAIN, f"{sn}")} """
+        identifiers = {(ECOFLOW_DOMAIN, f"{sn}")}
         device = device_reg.async_get_device(identifiers=identifiers)
         _LOGGER.debug(".. getting device by %s: %s", str(identifiers), str(device))
 
@@ -161,7 +161,8 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
 
     async def async_step_user(self, user_input: dict[str, Any] | None = None):
         if self.config_entry:  # reconfigure flow
-            return await self.async_step_choose_type()
+            # return await self.async_step_choose_type()
+            return await self.async_step_manual()
 
         if not user_input:
             return self.async_show_form(
@@ -183,15 +184,15 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
         if existing_entry:
             return self.async_abort(reason="do_reconfigure_existing")
 
-        return await self.async_step_choose_type()
+        return await self.async_step_manual() # return await self.async_step_choose_type()
 
     async def async_step_reconfigure(self, user_input: dict[str, Any] | None = None):
         self.set_current_config_entry(
             self.hass.config_entries.async_get_entry(self.context["entry_id"])
         )
-        return await self.async_step_user()
+        return await self.async_step_manual() # return await self.async_step_user()
 
-    async def async_step_choose_type(self, user_input: dict[str, Any] | None = None):
+    """ async def async_step_choose_type(self, user_input: dict[str, Any] | None = None):
         if self.config_entry:  # reconfig flow
             if CONF_ACCESS_KEY in self.config_entry.data:
                 return await self.async_step_api()
@@ -201,7 +202,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
         if not user_input:
             return self.async_show_menu(
                 step_id="choose_type", menu_options=["api", "manual"]
-            )
+            ) """
 
     async def async_step_manual(self, user_input: dict[str, Any] | None = None):
         user_auth_schema = vol.Schema(
@@ -305,7 +306,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
 
         return await self.update_or_create()
 
-    async def async_step_api(self, user_input: dict[str, Any] | None = None):
+    """ async def async_step_api(self, user_input: dict[str, Any] | None = None):
         api_keys_auth_schema = vol.Schema(
             {
                 vol.Required(CONF_API_HOST, default=self.new_data.get(CONF_API_HOST, "api-e.ecoflow.com")): selector.SelectSelector(
@@ -362,10 +363,10 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
                 menu_options=["api_add_device", "remove_device", "finish"],
             )
         else:
-            return await self.async_step_select_device()
+            return await self.async_step_select_device() """
 
-    async def async_step_api_add_device(self, user_input: dict[str, Any] | None = None):
-        return await self.async_step_select_device()
+    """ async def async_step_api_add_device(self, user_input: dict[str, Any] | None = None):
+        return await self.async_step_select_device() """
 
     async def async_step_finish(self, user_input: dict[str, Any] | None = None):
         return await self.update_or_create()
@@ -393,7 +394,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
         self.remove_device(target_device.sn)
         return await self.update_or_create()
 
-    async def async_step_select_device(self, user_input: dict[str, Any] | None = None):
+    """ async def async_step_select_device(self, user_input: dict[str, Any] | None = None):
         if not user_input:
             try:
                 devices = await self.auth.fetch_all_available_devices()
@@ -464,7 +465,7 @@ class EcoflowConfigFlow(ConfigFlow, domain=ECOFLOW_DOMAIN):
             OPTS_DIAGNOSTIC_MODE: ("Diagnostic".lower() == user_input[CONF_DEVICE_TYPE].lower()),
         }
 
-        return await self.update_or_create()
+        return await self.update_or_create() """
 
     @staticmethod
     @callback
