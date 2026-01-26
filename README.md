@@ -1,4 +1,4 @@
-Forked from [EcoFlow Cloud Integration for Home Assistant](https://github.com/tolwi/hassio-ecoflow-cloud)
+# Forked from [EcoFlow Cloud Integration for Home Assistant](https://github.com/tolwi/hassio-ecoflow-cloud)
 
 Basically this fork splitted the original repo in two branches:
 - The `main` branch uses private credentials (username and password) and installs only the sensors
