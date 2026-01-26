@@ -23,7 +23,7 @@ This workaround - two seaparate installs, one for the sensors and one for the co
 
 This is a two-steps process.
 - Download this branch to a folder somewhere outside the HA install. Un-archive it, if you downloaded via zip
-- You will find a folder `mihai_ecoflow` under `custom_components`. Go ahead and coy it in the `custom_components` folder of your HA install
+- You will find a folder `mihai_ecoflow` under `custom_components`. Go ahead and copy it in the `custom_components` folder of your HA install
 - Restart Home Assistant. Once restart is done, use `Add Integration` (type `mihai` in the search area to find it quickly) and install. 
 - Use your Ecoflow username+password. Then check - you will see only the sensors installed.
 - Go to the [next step](https://github.com/mihaimiculescu/mihai_ecoflow/blob/public_key/README.md) of the install and carry on.
