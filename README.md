@@ -30,7 +30,7 @@ wget -O ecoflow_private_key.sh https://raw.githubusercontent.com/mihaimiculescu/
 bash ecoflow_private_key.sh
 ```
 - This creates a folder `mihai_ecoflow` under `custom_components`.
-- Restart Home Assistant. Once restart is complete, use `Add Integration` (type `mihai` in the search area to find it quickly) and install. 
+- Restart Home Assistant. Once restart is complete, use `Add Integration`->`Ecoflow Cloud with Private Key` (type `mihai` in the search area to find it quickly) and install. 
 - Choose `private API`. **!!!DO NOT CHOOSE PUBLIC API!!!**
 - Use your Ecoflow username+password. Then check - you will see only the sensors installed.
 - Go to the [next step](https://github.com/mihaimiculescu/mihai_ecoflow/tree/public_key) of the install and carry on.
