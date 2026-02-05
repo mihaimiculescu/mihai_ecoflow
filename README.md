@@ -1,7 +1,7 @@
 # Forked from [EcoFlow Cloud Integration for Home Assistant](https://github.com/tolwi/hassio-ecoflow-cloud)
 
 ## This is step two installation of the Ecoflow integration.
-#### For the first step [click  this link](https://github.com/mihaimiculescu/mihai_ecoflow/blob/main/README.md). Don't proceed with this step if you haven't completed step one!
+#### For the first step [click  this link](https://github.com/mihaimiculescu/mihai_ecoflow/tree/main). Don't proceed with this step if you haven't completed step one!
 ### Prerequisites
 - Ecoflow _AccessKey+SecretKey_ pair.
 ## Installation
