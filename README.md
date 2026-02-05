@@ -33,7 +33,7 @@ bash ecoflow_private_key.sh
 - Restart Home Assistant. Once restart is complete, use `Add Integration` (type `mihai` in the search area to find it quickly) and install. 
 - Choose `private API`. **!!!DO NOT CHOOSE PUBLIC API!!!**
 - Use your Ecoflow username+password. Then check - you will see only the sensors installed.
-- Go to the [next step](https://github.com/mihaimiculescu/mihai_ecoflow/blob/public_key/README.md) of the install and carry on.
+- Go to the [next step](https://github.com/mihaimiculescu/mihai_ecoflow/tree/public_key) of the install and carry on.
 
 ## Disclaimers
 
