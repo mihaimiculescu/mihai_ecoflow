@@ -7,7 +7,7 @@
 ## Installation
 ### Manual installation only
 - open your terminal, `cd` in your HA's `custom_components` folder
-- From there run this commands:
+- From there run these commands:
 ```
 wget -O ecoflow_public_key.sh https://raw.githubusercontent.com/mihaimiculescu/mihai_ecoflow/public_key/ecoflow_public_key.sh
 bash ecoflow_public_key.sh
