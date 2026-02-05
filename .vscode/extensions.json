@@ -1,7 +1,0 @@
-{
-    "recommendations": [
-        "charliermarsh.ruff",
-        "prettier.prettier-vscode",
-        "ms-python.python"
-    ]
-}
