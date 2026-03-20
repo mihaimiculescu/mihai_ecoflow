@@ -17,7 +17,7 @@ bash ecoflow_public_key.sh
 - Choose `public API`. **!!!DO NOT CHOOSE PRIVATE API!!!**
 - Use your Ecoflow AccessKey+SecretKey. Then check - you will see only the controls installed, no sensors.
 - The sensors are in the other integration
-- If you had a previous Ecoflow installation, go to all your dashboards and manually update all entries with their new identities.
+- If you had a previous Ecoflow installation, go to all your dashboards, automations and/or templates and manually update all entries with their new identities.
 ## Disclaimers
 
 ⚠️ Originally developed for personal use without a goal to cover all available device attributes
